@@ -1,0 +1,7 @@
+# By default, everything requires approval from the maintainers team
+* @KumoCMS/maintainers
+
+# Governance and CI/CD configuration require tech-lead approval
+/.github/ @KumoCMS/tech-leads
+/LICENSE @KumoCMS/tech-leads
+/CONTRIBUTING.md @KumoCMS/tech-leads
