@@ -42,37 +42,52 @@ Leverage KumoCMS's multi-region architecture for global content delivery with au
 
 ---
 
-## 🚀 Quick Start
+## 🧩 Components
 
-### Prerequisites
+KumoCMS is built from modular, reusable components:
 
-- **Python 3.9+** (For Lambda functions)
-- **Node.js** (v18+) (For React frontend development)
-- **AWS CLI** configured with Administrator access.
-- **Terraform**
+### kumocms-lambda-python
 
-### 1. Clone the repository
+**Repository**: [kumocms-lambda-python](https://github.com/kumocms/kumocms-lambda-python)
 
-```bash
-git clone https://github.com/KumoCMS/kumocms.github.io.git
-cd kumocms.github.io
-```
+The core Python Lambda function code that powers the KumoCMS API. This repository contains all API handlers for document management operations including upload, retrieve, archive, restore, and delete.
 
-### 2. Deploy Infrastructure
+**Key Features**:
+- RESTful API handlers for document lifecycle management
+- AWS Secrets Manager integration for API key authentication
+- S3 pre-signed URL generation for direct client uploads
+- Event-driven metadata extraction
+- Comprehensive unit tests with mocking
 
-```bash
-cd infra/terraform
-terraform init
-terraform apply -var="primary_region=ap-northeast-1" -var="secondary_region=ap-northeast-3"
-```
+**API Documentation**: [Swagger UI](./swagger.html) | [OpenAPI Spec](https://raw.githubusercontent.com/kumocms/kumocms-lambda-python/main/src/handlers/api/swagger.json)
 
-### 3. Start Local Development
+### kumocms-vault-internal
 
-```bash
-cd client
-npm install
-npm run dev
-```
+**Repository**: [kumocms-vault-internal](https://github.com/kumocms/kumocms-vault-internal) *(Private)*
+
+Complete Terraform infrastructure code for deploying KumoCMS as an internal document management system. This is a reference implementation that demonstrates how to deploy KumoCMS in a production environment.
+
+**Key Features**:
+- Consumes `kumocms-lambda-python` Lambda deployment package
+- Uses `terraform-aws-kumocms-regional` module for regional resources
+- Creates DynamoDB Global Tables for multi-region data replication
+- Configures API Gateway with custom authorizer
+- Sets up S3 buckets with encryption and lifecycle policies
+- Manages AWS Secrets Manager for API keys
+
+### terraform-aws-kumocms-regional
+
+**Repository**: [terraform-aws-kumocms-regional](https://github.com/kumocms/terraform-aws-kumocms-regional)
+
+Reusable Terraform module for provisioning regional KumoCMS resources. This module encapsulates all the AWS resources needed in a single region.
+
+**Key Resources**:
+- **API Gateway**: RESTful API with Lambda integrations and custom authorizer
+- **Lambda Functions**: Document handlers and event processors
+- **S3 Buckets**: Document storage with versioning and lifecycle policies
+- **EventBridge Rules**: Automated metadata extraction and DLQ retry logic
+- **SQS Queues**: Dead Letter Queue for failed operations
+- **IAM Roles & Policies**: Least-privilege access for Lambda functions
 
 ---
 
