@@ -1,4 +1,7 @@
 # ☁️ KumoCMS
+
+*[English](README.md) | [日本語](README.ja.md)*
+
 ### Enterprise-Grade Multi-Region Serverless Content Management
 
 KumoCMS is an open-source, high-performance headless CMS built for global scale. By leveraging AWS Serverless primitives, it provides a "zero-ops" experience with built-in multi-region resilience, perfect for document management and content delivery in high-availability environments.
