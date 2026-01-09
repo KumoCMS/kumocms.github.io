@@ -42,22 +42,6 @@ Leverage KumoCMS's multi-region architecture for global content delivery with au
 
 ---
 
-## 📋 Use Cases
-
-### Internal CMS
-
-![KumoCMS Internal Use Case](diagrams/KumoCMS_Internal.png)
-
-Deploy KumoCMS as a secure, internal document management system for your organization. Ideal for managing corporate documents, policies, and internal knowledge bases with controlled access.
-
-### Active-Active Multi-Region Content Management
-
-![KumoCMS Active-Active Multi-Region](diagrams/KumoCMS_Active-Active.png)
-
-Leverage KumoCMS's multi-region architecture for global content delivery with automatic failover. Perfect for mission-critical applications requiring high availability and disaster recovery across geographic regions.
-
----
-
 ## 🧩 Components
 
 KumoCMS is built from modular, reusable components:
