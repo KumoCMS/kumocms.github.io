@@ -19,12 +19,22 @@ KumoCMS is an open-source, high-performance headless CMS built for global scale.
 
 KumoCMS runs entirely on AWS managed services:
 
-- **Frontend**: React hosted on S3 + CloudFront.
+- **Frontend**: React hosted on S3 + CloudFront (Optional).
 - **Compute**: Python-based AWS Lambda + API Gateway (Regional/Edge).
 - **Database**: DynamoDB Global Tables (NoSQL).
-- **Storage**: S3 with Multi-Region Access Points.
+- **Storage**: Simple Storage Service (S3).
 
 ---
+
+---
+
+### Use Cases
+
+- Internal CMS
+
+
+- Active-Active Multi-Region Content Management
+
 
 ## 🚀 Quick Start
 
